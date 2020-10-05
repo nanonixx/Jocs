@@ -1,55 +1,41 @@
 import java.util.Random;
-import java.util.Scanner;
 
 public class JocDaus {
 
+    private Dau dauA;
+    private Dau dauB;
+    private Dau dauC;
 
-    public void joc(){
+    private int victoria=0;
 
-        Scanner input = new Scanner(System.in);
+    public int getVictoria() {
+        return victoria;
+    }
+
+    public JocDaus() {
+        dauA = new Dau();
+        dauB = new Dau();
+        dauC = new Dau();
+    }
+
+
+
+    public void jugar(){
 
         Random rand = new Random();
-        int dadoA, dadoB;
-        int total;
 
-        int c2=0, c3=0, c4=0, c5=0, c6=0, c7=0, c8=0, c9=0, c10=0, c11=0, c12 = 0;
+        dauA.setValor(rand.nextInt(6)+1);
+        dauB.setValor(rand.nextInt(6)+1);
+        dauC.setValor(rand.nextInt(6)+1);
 
-        System.out.println("Quantes vegades vols llençar els daus?");
-        int N = input.nextInt();
-        System.out.println("Llançament...");
+        System.out.println("\nDau 1: "+dauA.getValor()+"\nDau 2: "+dauB.getValor()+"\nDau 3: "+dauC.getValor()+"\n");
 
-        for (int i = 0; i < N; i++) {
-
-            dadoA = rand.nextInt(6)+1;
-            dadoB = rand.nextInt(6)+1;
-
-            total = dadoA + dadoB;
-
-            if (total==2) c2++;
-            if (total==3) c3++;
-            if (total==4) c4++;
-            if (total==5) c5++;
-            if (total==6) c6++;
-            if (total==7) c7++;
-            if (total==8) c8++;
-            if (total==9) c9++;
-            if (total==10) c10++;
-            if (total==11) c11++;
-            if (total==12) c12++;
+        if ((dauA.getValor() == dauB.getValor()) && (dauA.getValor() == dauC.getValor())){
+            System.out.println("¡Has ganado el Dado!\n");
+            victoria++;
         }
-
-        System.out.println("Resultat");
-        System.out.println("2-->  "+c2+" vegades");
-        System.out.println("3-->  "+c3+" vegades");
-        System.out.println("4-->  "+c4+" vegades");
-        System.out.println("5-->  "+c5+" vegades");
-        System.out.println("6-->  "+c6+" vegades");
-        System.out.println("7-->  "+c7+" vegades");
-        System.out.println("8-->  "+c8+" vegades");
-        System.out.println("9-->  "+c9+" vegades");
-        System.out.println("10-->  "+c10+" vegades");
-        System.out.println("11-->  "+c11+" vegades");
-        System.out.println("12-->  "+c12+" vegades");
     }
+
+
 
 }
